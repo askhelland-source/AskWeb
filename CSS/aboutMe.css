@@ -1,0 +1,155 @@
+
+
+h1 {
+    text-align: center;
+}
+
+
+
+/* Navigasjons Menu */
+
+body{
+    margin: 0px;
+}
+main{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+h1{
+    text-align: center;
+}
+.navbar ul{
+    list-style-type: none;
+    background-color: hsl(152, 75%, 35%);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+.navbar a{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+.navbar a:hover{
+    background-color: hsl(150, 95%, 25%);
+}
+.navbar li{
+    float: left;
+}
+
+
+
+
+
+/* About me page styles */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.about{
+    min-height: 100vh;
+    width: 100%;
+    padding: 70px 0px;
+    background-color: rgb(255, 255, 255);
+}
+
+.about img{
+    border: 2px solid red;
+    box-shadow: 0 0 5px red;
+    height: auto;
+    width: 50%;
+    border-radius: 5em;
+    transition: 0.5s ease;
+}
+
+.main{
+    width: 1200px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about-text h1{
+    color: black;
+    font-size: 80px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.about-text h5{
+   color: black;
+   font-size: 28px;
+   text-transform: 25px;
+   margin-bottom: 0.4em;
+   padding-left: 5%;
+}
+span{
+    background-color: rgb(255, 174, 0);
+    color: rgb(0, 0, 0);
+}
+
+.about-text p{
+    color: black;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 45px;
+    padding-left: 5%;
+}
+
+
+/* Knapper  */
+
+
+button{
+    background: transparent;
+    color: red;
+    font-size: 16px;
+    text-decoration: none;
+    border: 2px solid red;
+    font-weight: bold;
+    padding: 13px 30px;
+    border-radius: 30px;
+    transition: 0.5s ease;   
+}
+
+button:hover{
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+    box-shadow: 0 0 5px red;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
+.cv-button{
+    display: inline-block;
+    background: transparent;
+    color: red;
+    font-size: 16px;
+    text-decoration: none;
+    border: 2px solid red;
+    font-weight: bold;
+    padding: 13px 30px;
+    border-radius: 30px;
+    transition: 0.5s ease;   
+}
+
+.cv-button:hover{
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+    box-shadow: 0 0 5px red;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+

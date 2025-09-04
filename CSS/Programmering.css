@@ -1,0 +1,415 @@
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+html {
+    font-size: 100%;
+}
+
+body {
+    margin: 0;
+    padding-top: 0vh; 
+    font-family: "Open Sans", sans-serif;
+}
+
+/* ====== Header ====== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2vh 5vw;
+    background: #2a2a2a;
+    backdrop-filter: blur(3vh);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.header .logo img {
+    height: 12vh;
+    max-height: 5rem;
+    display: block;
+}
+
+
+
+
+/* ====== Navigasjonsmeny ====== */
+.navbar ul {
+    list-style-type: none;
+    background-color: hsl(152, 75%, 35%);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 5vh;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 3vh 2.5vw;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: hsl(150, 95%, 25%);
+}
+
+
+
+/* Gjør header,logo og navigasjons meny mobil vennelig */
+
+@media (max-width: 768px){
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2vh 5vw;
+        position: sticky;
+    }
+
+    .header .logo {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2vh 5vw;
+       
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%; 
+    }
+
+    .navbar li {
+        width: 100%; 
+    }
+
+    .navbar a {
+        text-align: center;
+        padding: 1.2vh 0;
+        font-size: 0.9rem;
+    }
+    
+}
+
+
+
+
+/* Hamburger Menu */
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --bar-width: 60px;
+  --bar-height: 8px;
+  --hamburger-gap: 6px;
+  --foreground: #ff0000;
+  --hamburger-margin: 8px;
+  --animation-timing: 200ms ease-in-out;
+  --x-width: calc(var(--bar-width) + var(--hamburger-margin) * 1.41421356237);
+}
+
+
+
+
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  align-items: flex-start;
+  width: max-content;
+  position: absolute;
+  top: var(--hamburger-margin);
+  right: var(--hamburger-margin);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after {
+  box-shadow: 5px 5px 10px black;
+  content: "";
+  display: block;
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background: var(--foreground);
+  border-radius: 9999px;
+  transform-origin: left center;
+  transition: width var(--animation-timing), transform var(--animation-timing), opacity var(--animation-timing);
+}
+
+.hamburger-menu input {
+  box-shadow: 5px 5px 10px black;
+  appearance: none;
+  display: block;
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background: var(--foreground);
+  border-radius: 9999px;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  transition: width var(--animation-timing), transform var(--animation-timing), opacity var(--animation-timing);
+}
+
+.hamburger-menu:has(input:checked)::before {
+  transform: rotate(45deg) translate(0, calc(var(--bar-height) / -2));
+  width: var(--x-width);
+}
+
+.hamburger-menu:has(input:checked)::after {
+  transform: rotate(-45deg) translate(0, calc(var(--bar-height) / 2));
+  width: var(--x-width);
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+
+
+
+
+
+/* Hamburger Menu Sidebar */
+
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: translate var(--animation-timing);
+    translate: 100%;
+    padding: 0.5rem 1rem;
+    padding-top: calc(var(--bar-height) + var(--hamburger-margin) + 1rem);
+    background-color:rgb(14, 14, 14);
+    color: white;
+    max-width: 10rem;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: left;
+    border-radius: 30px;
+}
+
+.sidebar a:hover {
+    transform: scale(1.05);
+    border: 2px solid red;
+    box-shadow: 0 0 5px red;
+}
+
+.sidebar li {
+    text-align: center;
+}
+
+.hamburger-menu:has(input:checked) + .sidebar {
+    translate: 0;
+}
+
+
+
+
+
+/* ====== Artikkel Kort ====== */
+.site-container {
+    margin: 2rem auto;
+    max-width: calc(100% - 20vh);
+    padding-top: 15vh;
+}
+
+.article-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+    gap: 2rem;
+}
+
+.article-image {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.article-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5vh 5vh 0 0;
+}
+
+.article-card {
+    background: white;
+    border-radius: 5vh;
+    transition: 0.3s;
+}
+
+.article-card:hover {
+    box-shadow: 0 4px 20px rgba(34, 68, 123, 0.2);
+}
+
+.article-content {
+    padding: 2rem;
+}
+
+.article-card .card-category {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    color: #6b82a7;
+    display: block;
+    text-decoration: none;
+}
+
+.article-card .card-title {
+    margin: 1rem 0;
+    color: #22447b;
+}
+
+.article-content .card-excerpt {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #6b82a7;
+    margin: 0;
+}
+
+
+
+
+
+@media screen and (min-width: 768px) {
+    .site-container {
+        max-width: 608px;
+    }
+    .article-card {
+        display: grid;
+        grid-template-rows: 220px 1fr;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .site-container {
+        max-width: 1156px;
+    }
+}
+
+
+
+/* Alle lenker i Artikkel Kort */
+
+article a {
+    text-decoration: none; 
+    color: #22447b;       
+    font-weight: 600;      
+    transition: 0.3s;
+ 
+}
+
+
+article a:hover {
+    color: #ff6600;        
+    text-decoration: underline; 
+}
+
+
+
+
+
+
+
+/* ====== Footer ====== */
+footer {
+    background: #2c2c2c;
+    width: 100%;
+    padding-top: 40px;
+    color: rgb(202, 200, 200);
+    list-style-type: none;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer-content p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    background: rgb(50, 50, 50);
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+    color: #aaa;
+}
+
+.footer-bottom span {
+    text-transform: uppercase;
+    opacity: 0.4;
+    font-weight: 200;
+}
+
+
+
+/* Alle lenker i footeren */
+
+footer a {
+    color: #22447b;       
+    text-decoration: none; 
+    font-weight: 600;      
+    transition: 0.3s;
+ 
+}
+
+
+footer a:hover {
+    color: #ff6600;        
+    text-decoration: underline; 
+}
+
