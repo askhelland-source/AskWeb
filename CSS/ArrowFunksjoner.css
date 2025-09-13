@@ -74,36 +74,28 @@ body {
 
 /* Gjør header,logo og navigasjons meny mobil vennelig */
 
-@media (max-width: 768px){
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 2vh 5vw;
-        position: sticky;
-    }
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;   
+    align-items: center;      
+    padding: 1vh 3vw;
+  }
 
-    .header .logo {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 2vh 5vw;
-       
-    }
+  
+  .navbar {
+    order: -1; 
+    width: 100%;
+  }
 
-    .navbar ul {
-        flex-direction: column;
-        width: 100%; 
-    }
-
-    .navbar li {
-        width: 100%; 
-    }
-
-    .navbar a {
-        text-align: center;
-        padding: 1.2vh 0;
-        font-size: 0.9rem;
-    }
-    
+  .navbar ul {
+    display: flex;
+  }
+  .navbar a {
+    padding: 1vh 2vw;
+    font-size: 0.9rem;
+    display: block;
+    text-align: center;
+  }
 }
 
 
@@ -111,7 +103,7 @@ body {
 .site-container {
     margin: 2rem auto;
     max-width: calc(100% - 20vh);
-    padding-top: 15vh;
+    padding-top: 25vh;
 }
 
 .article-container {
