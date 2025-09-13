@@ -1,0 +1,410 @@
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+
+h1 {
+    text-align: center;
+}
+
+
+
+/* Navigasjons Menu */
+
+body{
+    margin: 0px;
+     
+}
+main{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+h1{
+    text-align: center;
+}
+/* ====== Header ====== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2vh 5vw;
+    background: #2a2a2a;
+    backdrop-filter: blur(3vh);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.header .logo img {
+    height: 12vh;
+    max-height: 5rem;
+    display: block;
+}
+
+
+
+
+/* ====== Navigasjonsmeny ====== */
+.navbar ul {
+    list-style-type: none;
+    background-color: hsl(152, 75%, 35%);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 5vh;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 3vh 2.5vw;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: hsl(150, 95%, 25%);
+}
+
+
+
+/* Gjør header,logo og navigasjons meny mobil vennelig */
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;   
+    align-items: center;      
+    padding: 1vh 3vw;
+  }
+
+  
+  .navbar {
+    order: -1; 
+    width: 100%;
+  }
+
+  .navbar ul {
+    display: flex;
+  }
+  .navbar a {
+    padding: 1vh 2vw;
+    font-size: 0.9rem;
+    display: block;
+    text-align: center;
+  }
+}
+
+
+
+/* About me page styles */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+.about{
+    min-height: 100vh;
+    width: 100%;
+    padding: 70px 0px;
+    background-color: rgb(255, 255, 255);
+}
+
+.about img{
+    border: 2px solid red;
+    box-shadow: 0 0 5px red;
+    height: 50%;
+    max-width: 30vw;
+    max-height: 50vh;
+    width: 50%;
+    border-radius: 5em;
+    transition: 0.5s ease;
+}
+
+.main{
+    padding-top: 15vh;
+    width: 1200px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about-text h1{
+    color: black;
+    font-size: 80px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.about-text h5{
+   color: black;
+   font-size: 28px;
+   text-transform: 25px;
+   margin-bottom: 0.4em;
+   padding-left: 5%;
+}
+span{
+    color: rgb(0, 0, 0);
+}
+
+.about-text p{
+    color: black;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 45px;
+    padding-left: 5%;
+}
+
+
+/* Knapper  */
+
+
+.Read-More{
+    display: inline-block;
+    background: transparent;
+    color: red;
+    font-size: 16px;
+    text-decoration: none;
+    border: 2px solid red;
+    font-weight: bold;
+    padding: 13px 30px;
+    border-radius: 2rem;
+    transition: 0.5s ease;   
+}
+
+.Read-More:hover{
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+    box-shadow: 0 0 5px red;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
+.cv-button{
+    display: inline-block;
+    background: transparent;
+    color: red;
+    font-size: 16px;
+    text-decoration: none;
+    border: 2px solid red;
+    font-weight: bold;
+    padding: 13px 30px;
+    border-radius: 2rem;
+    transition: 0.5s ease;   
+}
+
+.cv-button:hover{
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+    box-shadow: 0 0 5px red;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
+
+/* Kontakt meg   */
+
+
+.container{
+    width: 80%;
+    margin: 5vh auto;
+}
+
+.contact-box{
+    background: #06969b;
+    display: flex;
+    border-radius: 0.7rem;
+}
+
+
+.contact-left{
+    flex-basis: 60%;
+    padding: 2.5rem 3rem;
+}
+
+.contact-right{
+    flex-basis: 40%;
+    padding: 2.5rem 3rem;
+    background: #1140d7;
+    color: #FFF;
+    border-radius: 0.7rem;
+}
+
+h3{
+    font-size: 2rem;
+    color: #2c2c2c;
+    text-align: center;
+}
+.container p{
+    font-size: 1.2rem;
+    color: #2a2a2c;
+    margin-bottom: 2.5rem;
+    text-align: center;
+
+}
+
+
+.input-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+
+.input-row .input-group{
+    flex-basis: 45%;
+}
+
+input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    outline: none;
+    padding-bottom: 5px;
+    border-radius: 0.2rem;
+}
+
+textarea{
+    width: 100%;
+    border: 1px solid #CCC;
+    outline: none;
+    padding: 0.9rem;
+    box-sizing: border-box;
+    border-radius: 1rem
+}
+
+label{
+    margin-bottom: 0.5rem;
+    display: block;
+    color: rgb(77, 54, 99);
+}
+
+
+.submit{
+  background: blue;
+  width: 10vw;
+  border: none;
+  outline: none;
+  color: white;
+  height: 5vh;
+  border-radius: 2rem;
+  margin-top: 1rem;
+  box-shadow: 0px 5px 15px 0px rgba(28,0,181,0.3);
+}
+
+.contact-left h4{
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+
+
+.contact-right h4{
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+tr td:first-child{
+    padding-right: 1.5rem;
+}
+
+tr td{
+    padding-top: 1.5rem;
+}
+
+
+
+
+
+/* ====== Footer ====== */
+footer {
+    background: #2c2c2c;
+    width: 100%;
+    padding-top: 40px;
+    color: rgb(202, 200, 200);
+    list-style-type: none;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer-content p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    background: rgb(50, 50, 50);
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+    color: #aaa;
+}
+
+.footer-bottom span {
+    text-transform: uppercase;
+    opacity: 0.4;
+    font-weight: 200;
+}
+
+
+/* Alle lenker i footeren */
+
+footer a {
+    text-decoration: none; 
+    color: #22447b;       
+    font-weight: 600;      
+    transition: 0.3s;
+ 
+}
+
+
+footer a:hover {
+    color: #ff6600;        
+    text-decoration: underline; 
+}
+
+
+
