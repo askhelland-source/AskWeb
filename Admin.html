@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Demo Login</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <script>
+        // Set up the Tailwind configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4f46e5',
+                        'primary-dark': '#4338ca',
+                        'secondary': '#f9fafb',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Main Container -->
+    <div id="app-container" class="w-full max-w-md">
+
+        <!-- Login Form Card (Visible by default) -->
+        <div id="login-form-card" class="bg-white p-8 rounded-xl shadow-2xl transition-all duration-500">
+            
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Admin Access</h1>
+            <p class="text-sm text-gray-500 mb-8 text-center">Enter your credentials to access the administrative dashboard.</p>
+
+            <!-- Credential Hint (for demo purposes) -->
+            <div class="bg-indigo-50 border-l-4 border-indigo-400 p-3 mb-6 rounded-lg text-sm text-indigo-700">
+                <p>Demo Credentials: **admin** / **password123**</p>
+            </div>
+
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <div class="mb-5">
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                    <input type="text" id="username" name="username" required 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150"
+                           placeholder="Enter username">
+                </div>
+
+                <div class="mb-6">
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="password" name="password" required 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150"
+                           placeholder="Enter password">
+                </div>
+
+                <!-- Message Box for Feedback -->
+                <div id="message-box" class="min-h-[2.5rem] mb-4 p-2 text-sm rounded-lg text-center font-medium" style="display: none;"></div>
+
+                <button type="submit" 
+                        class="w-full bg-primary text-white py-2.5 rounded-lg font-semibold hover:bg-primary-dark transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-primary focus:ring-opacity-50">
+                    Log In
+                </button>
+            </form>
+
+        </div>
+
+        <!-- Dashboard Content (Hidden initially) -->
+        <div id="dashboard-card" class="hidden bg-white p-8 rounded-xl shadow-2xl text-center transition-all duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-500 mx-auto mb-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Welcome, Admin!</h1>
+            <p class="text-gray-600 mb-8">You have successfully gained access to the restricted administrative area.</p>
+            
+            <button onclick="handleLogout()" 
+                    class="bg-red-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-red-600 transition duration-300 shadow-md">
+                Log Out
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        const VALID_USERNAME = 'admin';
+        const VALID_PASSWORD = 'password123';
+
+        const loginFormCard = document.getElementById('login-form-card');
+        const dashboardCard = document.getElementById('dashboard-card');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const messageBox = document.getElementById('message-box');
+
+        /**
+         * Utility function to display a message to the user.
+         * @param {string} message - The message text.
+         * @param {string} type - 'success' or 'error'.
+         */
+        function displayMessage(message, type) {
+            messageBox.textContent = message;
+            messageBox.style.display = 'block';
+
+            // Reset classes
+            messageBox.className = 'min-h-[2.5rem] mb-4 p-2 text-sm rounded-lg text-center font-medium';
+
+            if (type === 'success') {
+                messageBox.classList.add('bg-green-100', 'text-green-800');
+            } else if (type === 'error') {
+                messageBox.classList.add('bg-red-100', 'text-red-800');
+            }
+            
+            // Clear message after a few seconds
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 5000);
+        }
+
+        /**
+         * Handles the login form submission.
+         * @param {Event} event - The form submission event.
+         */
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+
+            // Simple validation
+            if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+                displayMessage('Login successful! Redirecting...', 'success');
+                
+                // Simulate transition to the dashboard
+                setTimeout(() => {
+                    loginFormCard.classList.add('hidden');
+                    dashboardCard.classList.remove('hidden');
+                }, 500);
+
+            } else {
+                displayMessage('Invalid username or password. Please try again.', 'error');
+            }
+        }
+
+        /**
+         * Handles the logout action.
+         */
+        function handleLogout() {
+            // Clear inputs
+            usernameInput.value = '';
+            passwordInput.value = '';
+
+            // Show login form and hide dashboard
+            dashboardCard.classList.add('hidden');
+            loginFormCard.classList.remove('hidden');
+            
+            displayMessage('You have been logged out.', 'error');
+        }
+    </script>
+
+</body>
+</html>
